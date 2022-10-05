@@ -1,10 +1,8 @@
 package co.com.meli.mutantsMeli.domain.utils;
 
-import org.springframework.http.HttpStatus;
-
-import java.util.ArrayList;
 import java.util.List;
 
+@Generated
 public class Error{
     private int errorCode;
     private String error;

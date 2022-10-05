@@ -1,13 +1,14 @@
-package co.com.meli.mutantsMeli.infrastructure.adapters.driven.mongo.services;
+package co.com.meli.mutantsMeli.infrastructure.adapters.driven.mongo.services.impl;
 
 import co.com.meli.mutantsMeli.infrastructure.adapters.driven.mongo.entities.Mutants;
 import co.com.meli.mutantsMeli.infrastructure.adapters.driven.mongo.mapper.StatsMongo;
 import co.com.meli.mutantsMeli.infrastructure.adapters.driven.mongo.repositories.RepositoryMongoMutants;
+import co.com.meli.mutantsMeli.infrastructure.adapters.driven.mongo.services.ServiceMutants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ServiceMongoMutants {
+public class ServiceMutantsImpl implements ServiceMutants {
     @Autowired
     RepositoryMongoMutants repository;
 

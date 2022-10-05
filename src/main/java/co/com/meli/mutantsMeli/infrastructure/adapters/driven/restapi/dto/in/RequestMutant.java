@@ -1,13 +1,14 @@
 package co.com.meli.mutantsMeli.infrastructure.adapters.driven.restapi.dto.in;
 
+import co.com.meli.mutantsMeli.domain.utils.Generated;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@Generated
 @Data
-public class RequestMutant {
+public class RequestMutant{
     @NotNull(message = "DNA no puede ser nulo")
-    @NotBlank(message = "DNA no puede estar vacio")
+    //@NotBlank(message = "DNA no puede estar vacio")
     private String [] dna;
 }

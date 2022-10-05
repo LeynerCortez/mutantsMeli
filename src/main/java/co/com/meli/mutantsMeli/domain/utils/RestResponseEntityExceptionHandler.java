@@ -6,21 +6,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Generated
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler
         extends ResponseEntityExceptionHandler {
@@ -53,50 +48,5 @@ public class RestResponseEntityExceptionHandler
         return new ResponseEntity<>(apiErrorVO, status);
     }
 
-    /*@ExceptionHandler(MethodArgumentNotValidException.class)
-    public final ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException e, WebRequest request) {
-        BindingResult exceptions = e.getBindingResult();
-        if (exceptions.hasErrors()) {
-            List<ObjectError> errors = exceptions.getAllErrors();
-            if (!errors.isEmpty()) {
-                FieldError fieldError = (FieldError) errors.get(0);
-                return handleExceptionInternal(e, fieldError.getDefaultMessage(),
-                        new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
-            }
-        }
-        return handleExceptionInternal(e, "argument valid failure",
-                new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
-    }*/
 
-    /*@ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public Error handleMethodArgumentNotValidException(MethodArgumentNotValidException ex, WebRequest request) {
-        BindingResult result = ex.getBindingResult();
-
-        List<String> errorList = new ArrayList<>();
-        result.getFieldErrors().forEach((fieldError) -> {
-            errorList.add(fieldError.getObjectName()+"."+fieldError.getField()+" : " +fieldError.getDefaultMessage() +" : rejected value [" +fieldError.getRejectedValue() +"]" );
-        });
-        result.getGlobalErrors().forEach((fieldError) -> {
-            errorList.add(fieldError.getObjectName()+" : " +fieldError.getDefaultMessage() );
-        });
-
-        return new Error(HttpStatus.BAD_REQUEST, ex.getMessage(), errorList);
-    }*/
-    /*@ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Object> parameterExceptionHandler(MethodArgumentNotValidException e, WebRequest request) {
-        BindingResult exceptions = e.getBindingResult();
-        if (exceptions.hasErrors()) {
-            List<ObjectError> errors = exceptions.getAllErrors();
-            if (!errors.isEmpty()) {
-                FieldError fieldError = (FieldError) errors.get(0);
-                return handleExceptionInternal(e, fieldError.getDefaultMessage(),
-                        new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
-            }
-        }
-        return handleExceptionInternal(e, "argument valid failure",
-                new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
-    }*/
 }
