@@ -87,7 +87,7 @@ La instalación de la aplicación se llevó a cabo en Heroku.
     `web: java -Dserver.port=$PORT -jar build/libs/mutantsMeli-0.0.1-SNAPSHOT.jar`
   - Por ultimo, realizamos nuestro commit and push y la aplicación empezara a desplegarse y nos entregara los resultados con el endpoint generado.
     
-## Ejecutando las pruebas ⚙️
+## Ejecutando las pruebas Unitarias⚙️
 Las pruebas se realizaron con Junit5 y Mockito
 Aspectos importantes como que se realizaron pruebas a los Controller, UseCase, Service, Util(identifyDNA)
 La clase identifyDNA encargada de encontrar las secuencias validas de ADN, tambien es la encargada de validar que la información enviada se encuentre correcta, para eso se hicieron 3 tipos de validaciones que se encuentran en la definición de los test:
@@ -99,3 +99,24 @@ para medir la efectividad de las pruebas realizadas se configuro el plugin de `J
 Las pruebas realizadas alcanzaron un porcentaje del 84%.
 
 ![image](https://user-images.githubusercontent.com/45829438/194217225-bc815e05-3861-43b5-b844-96c8daba2733.png)
+
+## Ejecutando las pruebas Automaticas (Performance Test)⚙️🚀
+
+Las pruebas de performance fueron realizadas con la herramienta JMeter que nos permite realizar ejecuciones en paralelos a nuestros endpoints y así evidenciar los tiempos de respuesta de nuestra API.
+
+Para esta prueba se enviaron 1000 request al endpoint /mutant con 10 hilos en paralelo y cada hilo enviando 100 peticiones en un periodo de 5 segundos.
+![image](https://user-images.githubusercontent.com/45829438/194340577-1a748ef2-706c-4f50-9dcb-67255d7551d0.png)
+
+Cabe aclarar que con este periodo se logró evidenciar una tasa menor de desviación en los errores, dado que al ser un servidor gratuito no tiene los suficientes recursos.
+
+Antes de ejecutar las pruebas teníamos las siguientes estadísticas.
+![image](https://user-images.githubusercontent.com/45829438/194341022-81dfdad0-8882-498a-916f-570146bb44ab.png)
+
+Durante la ejecución podemos observar las peticiones atendidas correctamente y su tiempo de respuesta.
+![image](https://user-images.githubusercontent.com/45829438/194341268-8efe3c36-d0e6-4c89-9181-3b00f1198fa4.png)
+
+En la gráfica que nos genera JMeter, podemos hacer un análisis más exacto de nuestra ejecución de 1000 peticiones, podemos observar que los menores tiempos de respuesta están alrededor de los 78ms y los que más tardaron llegaron a 567 ms para un rendimiento promedio de 343 ms, la desviación (errores en el servidor), se estabiliza de acuerdo a las peticiones que no es capaz de atender Heroku.
+![image](https://user-images.githubusercontent.com/45829438/194342296-46f9118a-5d20-4284-93c9-7f71b460bb4b.png)
+
+Por último, consultamos las estadísticas luego de esta ejecución.
+![image](https://user-images.githubusercontent.com/45829438/194342574-6af080a1-6b66-4cf0-ba29-3619d983f56c.png)
