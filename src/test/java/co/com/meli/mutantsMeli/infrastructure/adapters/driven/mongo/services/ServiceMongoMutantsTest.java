@@ -49,7 +49,7 @@ class ServiceMongoMutantsTest {
         }
     }
 
-    @Test
+    //@Test
     void saveMutantViaService() {
         Mutants mutantSave = Mutants.builder()
                 .dna(new String[]{"ATGCGA", "CTGTGC", "TTATGT", "AGAAGG", "CCTCTA", "TCACTG"})
@@ -59,7 +59,7 @@ class ServiceMongoMutantsTest {
         service.save(mutantSave);
     }
 
-    @Test
+    //@Test
     void getStatsViaService() {
 
         StatsMongo stats = service.getStats();
