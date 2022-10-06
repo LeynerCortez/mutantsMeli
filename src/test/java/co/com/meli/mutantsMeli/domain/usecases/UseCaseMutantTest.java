@@ -18,16 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-
-//@SpringBootTest
 class UseCaseMutantTest {
 
-    /*@TestConfiguration
-    static class UseCaseMutantTestContextConfiguration {
-        @Bean
-        public UseCaseMutant useCaseMutant() { return new UseCaseMutantImpl();
-        }
-    }*/
     @Mock
     private IdentifyDna identifyDna;
 

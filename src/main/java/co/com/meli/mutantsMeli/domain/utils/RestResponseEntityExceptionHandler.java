@@ -1,5 +1,6 @@
 package co.com.meli.mutantsMeli.domain.utils;
 
+import co.com.meli.mutantsMeli.config.Generated;
 import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

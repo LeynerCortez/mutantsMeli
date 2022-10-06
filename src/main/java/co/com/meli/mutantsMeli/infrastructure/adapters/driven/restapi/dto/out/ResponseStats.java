@@ -1,6 +1,6 @@
 package co.com.meli.mutantsMeli.infrastructure.adapters.driven.restapi.dto.out;
 
-import co.com.meli.mutantsMeli.domain.utils.Generated;
+import co.com.meli.mutantsMeli.config.Generated;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
