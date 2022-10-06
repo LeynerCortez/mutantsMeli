@@ -1,6 +1,6 @@
 package co.com.meli.mutantsMeli.infrastructure.adapters.driven.restapi.dto.in;
 
-import co.com.meli.mutantsMeli.domain.utils.Generated;
+import co.com.meli.mutantsMeli.config.Generated;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;

@@ -1,5 +1,7 @@
 package co.com.meli.mutantsMeli.domain.utils;
 
+import co.com.meli.mutantsMeli.config.Generated;
+
 import java.util.List;
 
 @Generated

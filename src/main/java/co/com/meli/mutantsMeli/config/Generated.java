@@ -1,4 +1,4 @@
-package co.com.meli.mutantsMeli.domain.utils;
+package co.com.meli.mutantsMeli.config;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
