@@ -2,7 +2,7 @@ language: java
 jdk:
   - openjdk11
 after_success:
-  - bash <(curl -Os https://uploader.codecov.io/latest/linux/codecov
+  - bash <(curl -Os https://uploader.codecov.io/latest/alpine/codecov
     
     chmod +x codecov
-    ./codecov -t ${CODECOV_TOKEN})
+    ./codecov)
